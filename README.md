@@ -8,10 +8,9 @@ Inter-window communication is made possible by the excellent [slimjack/IWC](http
 ### Getting started
 
 ```html
-<script src="src/SJ.js"></script>
+<script src="src/SJ.js"></script> <!-- IWC dependency -->
 <script src="src/CheckOnce.js"></script>
 ```
-
 
 #### Check once, from one tab
 
@@ -21,8 +20,8 @@ In the simplest scenario, you only want to use desktop notifications, and not up
 var Notifier = new CheckOnce(function(){
   // Some code to check for notifications here.
   yourAjaxFunctionWithCallback(function(data){
-    // When you receive your response, do something once..
-    new Notification('The server says: '+data.message);
+    // When you receive your response, show desktop notification once.
+    new Notification(data.user +' says '+ data.message);
   });
 });
 ```
