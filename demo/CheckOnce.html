@@ -1,0 +1,70 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>CheckOnce.js</title>
+  <style>
+  *
+  {
+    box-sizing: border-box;
+  }
+  html,
+  body
+  {
+    background-color: #F0F0F0;
+    font-family: Verdana, Arial, Helvetica;
+  }
+  .paper
+  {
+    background-color: white;
+    box-shadow: 2px 2px 10px 2px #CCCCCC;
+    height: 297mm;
+    margin: 1em auto;
+    overflow: hidden;
+    padding: 1.5cm 2cm;
+    width: 210mm;
+  }
+  a
+  {
+    color: #4078c0;
+  }
+  @media print {
+    .paper
+    {
+      border: none;
+      box-shadow: none;
+      margin: 0;
+      page-break-after: auto;
+    }
+  }
+  </style>
+
+  <script src="../src/SJ.js"></script>
+  <script src="../src/CheckOnce.js"></script>
+  <script>
+  var Notifier = new CheckOnce({
+    checker: function(){
+      console.log('Checking..');
+      Notifier.emit({hello: 'world'});
+    }
+  });
+  </script>
+</head>
+<body>
+  <div class="paper">
+    <h1 id="checkonce-js"><a href="https://github.com/Sleavely/CheckOnce.js" title="CheckOnce.js on Github">CheckOnce.js</a></h1>
+    <p>Tab-tolerant notification subscription. Only polls for notifications from one tab, but seamlessly continues in another when the first one is closed.</p>
+
+    <h3 id="demo">Demo</h3>
+    <p>Open up multiple tabs with this page and check their console. After you close the first tab, you'll notice that another takes up the notification-checking.</p>
+
+    <pre><code>
+    var Notifier = new CheckOnce({
+      checker: function(){
+        console.log('Checking..');
+        Notifier.emit({hello: 'world'});
+      }
+    });
+    </code></pre>
+  </div>
+</body>
+</html>
